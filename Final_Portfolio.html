@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="Portfolio-Style.css" />
+    
+    <style>
+        .section {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .section.active {
+            opacity: 1;
+        }
+
+        .navbar ul li a {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar ul li a:hover {
+            transform: scale(1.1);
+        }
+
+        #typed {
+            font-family: 'Courier New', Courier, monospace;
+            color: #333;
+            font-size: 24px;
+            border-right: 2px solid #333; /* blinking cursor effect */
+            animation: typing 1s steps(20) forwards;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <div class="main-nav">
+        <div class="container">
+            <header class="group top-nav">
+                <div class="navigation-toggle" data-tools="navigation-toggle" data-target="#navbar-1">
+                    <span class="logo">Menu</span>
+                </div>
+                <nav id="navbar-1" class="navbar item-nav">
+                    <ul>
+                        <li class="active"><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#Achies&Accomp">Achievements & Accomplishments</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+    </div>
+
+    <!-- Introduction -->
+    <div class="intro section" id="about">
+        <div class="container">
+            <div class="units-row units-split wrap">
+                <div class="unit-20">
+                    <img src="http://tinyurl.com/esuecbxf" alt="Avatar">
+                </div>
+                <div class="unit-80">
+                    <h1>Introduction<br><span id="typed"></span></h1>
+                </div>
+                <p>
+                    I am 20 years old, born and raised here in the province of Benguet, Baguio City. 
+                    A sophomore student in the University of the Cordilleras majoring in Information Technology with a focus on network and security.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- My Projects -->
+    <div class="work section second" id="projects">
+        <div class="container">
+            <h1><br>My Projects</h1>
+            <ul class="work-list">
+                <li>2024 - Present</li>
+                <li><a href="http://tinyurl.com/2ssw8b78">Project 1</a></li>
+                <li>My First Web Page</li>
+            </ul>
+            <ul class="work-list">
+                <li>2024 - Present</li>
+                <li><a href="http://tinyurl.com/yc2u25ba">Project 2</a></li>
+                <li>Styled Web Page</li>
+            </ul>
+            <ul class="work-list">
+                <li>2024 - Present</li>
+                <li><a href="http://tinyurl.com/yc2u25ba">Project 3</a></li>
+                <li>Recipe Book</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Achievements and Accomplishments -->
+    <div class="award section second" id="Achies&Accomp">
+        <div class="container">
+            <h1>Achievements  &amp;<br>Accomplishments  </h1>
+            <ul class="award-list list-flat">
+                <li>November 2018</li>
+                <li>Passing the Philippine Educational Placement Test (PEPT)</li>
+                <li>Department of Education</li>
+            </ul>
+            <ul class="award-list list-flat">
+                <li>December 2014 - Administrative Aid</li>
+                <li>Administrative Aid supported day-to-day job operations.</li>
+                <li>Increasing customer engagement and profit. </li>
+                <li>Provided a variety of services, including printing and encoding, which further boosted customer engagement and profit.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="skills section second" id="skills">
+        <div class="container">
+            <h1>Technical<br>Skills</h1>
+            <ul class="skill-list list-flat">
+                <li>Network Administration</li>
+                <li>TCP/IP, DNS, DHCP, SNMP,Vlans</li>
+            </ul>
+            <ul class="skill-list list-flat">
+                <li>Security Fundamentals</li>
+                <li>PCI DSS, HIPAA, GDPR, </li>
+            </ul>
+            <ul class="skill-list list-flat">
+                <li>Network Monitoring and Analysis</li>
+                <li>Wireshark</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="work section second" id="resume">
+        <div class="container">
+            <h1><br>My Resume</h1>
+            <ul class="work-list">
+                <a href="http://tinyurl.com/5estz3ab">Resume</a>
+            </ul>
+        </div>
+    </div>
+
+    <div class="work section second" id="contact">
+        <div class="container">
+            <h1><br>Contact Me</h1>
+            <ul class="work-list">
+                <a href="https://www.linkedin.com/in/ishierclane/">Linkedin</a>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Quote -->
+    <div class="quote">
+        <div class="container text-centered">
+            <h1> "Never believe a prediction that not empower you" - Sean Stephenson</h1>
+        </div>
+    </div>
+
+
+    <script>
+        // Animated Transitions
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Typing effect for intro text
+        const introText = document.getElementById('typed');
+        const text = "Hi, I’m Ishier!";
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                introText.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 100); // Adjust typing speed here (milliseconds)
+            } else {
+                introText.textContent = ""; // Clear text after typing completes
+                index = 0;
+                setTimeout(typeWriter, 1000); // Wait before typing again
+            }
+        }
+
+        // Call the typing function initially
+        typeWriter();
+
+        // Activate sections on scroll
+        document.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (sectionTop < windowHeight * 0.75) {
+                    section.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
